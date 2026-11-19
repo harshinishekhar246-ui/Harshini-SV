@@ -75,31 +75,32 @@ input,textarea{width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(255,25
 <div id="modal"><div class="box glass" id="mbox"></div></div>
 <script>
 const DATA = {
-  firstName: "Harshini", fullName: "Harshini SV", role: "Digital Marketing Intern",
+  firstName: "Harshini", fullName: "Harshini SV", role: "Beginner | Aspiring Digital Marketer",
   email: "harshinishekhar246@gmail.com", location: "", resume: "#contact",
-  bio: ["Hi, I'm Harshini SV, a student with a passion for Digital Marketing and Content Creation.",
-        "I love creating Instagram Reels, posters and campaigns that help brands grow online. I am looking for a Digital Marketing Intern role where I can learn practically and contribute with creative ideas."],
-  strengths: ["Creative Thinking","Quick Learner","Consistent","Content Creation"],
+  bio: ["Hi, I'm Harshini SV. I am a student and a beginner in Digital Marketing.",
+        "I am still learning, but I am very interested in social media, content creation and how brands grow online. I am a quick learner, I am consistent, and I am ready to learn practically through an internship.",
+        "Give me a chance and I will learn fast and do my best."],
+  strengths: ["Quick Learner","Consistent","Curious","Hard Working"],
   socials: [["GitHub","https://github.com/harshinishekhar246-ui"],["LinkedIn","https://linkedin.com/in/harshini-shekhar"],["Instagram","https://instagram.com/ajiet._.diaries"]],
-  metrics: [["Projects",4,0],["Reels / Designs",25,0],["Tools Known",5,0]],
+  metrics: [["Currently Learning",3,0],["Projects Practicing",2,0],["Willing To Learn",100,0]],
   timeline: [
-    {type:"work",title:"Digital Marketing Intern (Aspiring)",org:"Seeking Internship Opportunity",period:"2026 – Present",pts:["Creating content ideas, Reels and posters for brands.","Learning Meta Ads and Content Strategy."]},
-    {type:"education",title:"B.E, Electronics & Communication (ECE)",org:"AJIET",period:"2024 – 2028",pts:["Learning Digital Marketing side by side"]}
+    {type:"work",title:"Looking For Internship Opportunity",org:"Fresher - Open To Learn",period:"2026 – Present",pts:["I am a beginner and looking for my first internship to learn practically.","I am ready to learn content, posting, and basic marketing tasks."]},
+    {type:"education",title:"B.E, Electronics & Communication (ECE)",org:"AJIET",period:"2024 – 2028",pts:["Currently studying and exploring Digital Marketing as my interest"]}
   ],
   projects: [
-    {name:"Digital Marketing Content",blurb:"Created Reels, posters and captions for Instagram pages. Focus on reach and engagement.",stack:["Canva","CapCut","Instagram"],gh:"https://github.com/harshinishekhar246-ui/Harshini",live:""},
-    {name:"Portfolio Website",blurb:"This portfolio itself - built with HTML, CSS and hosted on GitHub Pages.",stack:["HTML","CSS","GitHub Pages"],gh:"https://github.com/harshinishekhar246-ui/Harshini",live:""},
-    {name:"Brand Poster Design",blurb:"Designed posters for small brands using Canva - festival offers, product launches.",stack:["Canva","Instagram"],gh:"https://github.com/harshinishekhar246-ui/Harshini",live:""}
+    {name:"Learning Content Creation",blurb:"I am learning how to make simple posters and short videos using Canva and CapCut. Practicing daily to improve.",stack:["Canva","CapCut","Instagram"],gh:"https://github.com/harshinishekhar246-ui/Harshini-SV",live:""},
+    {name:"Portfolio Website",blurb:"My first website. I built this portfolio to show who I am and what I am learning.",stack:["HTML","CSS","GitHub Pages"],gh:"https://github.com/harshinishekhar246-ui/Harshini-SV",live:""},
+    {name:"Learning Digital Marketing",blurb:"Learning basics of Instagram, content ideas, and how brands post online. Still in learning stage.",stack:["Instagram","Content Ideas","Learning"],gh:"https://github.com/harshinishekhar246-ui/Harshini-SV",live:""}
   ],
   skills: {
-    "Digital Marketing":["Instagram Marketing","Content Creation","Canva","CapCut","Meta Ads - Learning"],
-    "Technical":["HTML","CSS Basics","MS Office"],
-    "Soft Skills":["Communication","Creativity","Time Management","Team Work"]
+    "Learning Now":["Instagram Basics","Canva Basics","CapCut Basics","Content Ideas"],
+    "Technical":["HTML Basics","MS Office","Basic Computer Skills"],
+    "Soft Skills":["Quick Learner","Communication","Consistent","Positive Attitude"]
   },
   certs: [
-    {name:"Digital Marketing Basics",issuer:"Online Course",date:"2026-03",code:"DM-0001",color:"#ff3b5c",skills:["Social Media","Content"]},
-    {name:"Canva Design",issuer:"Canva",date:"2026-01",code:"DM-0002",color:"#00d4aa",skills:["Poster","Reels"]},
-    {name:"Content Creation",issuer:"Online Course",date:"2025-11",code:"DM-0003",color:"#4da3ff",skills:["Reels","Editing"]}
+    {name:"Digital Marketing Basics",issuer:"Learning",date:"2026",code:"LEARN-01",color:"#ff3b5c",skills:["Learning","Basics"]},
+    {name:"Canva - Basics",issuer:"Learning",date:"2026",code:"LEARN-02",color:"#00d4aa",skills:["Poster","Learning"]},
+    {name:"Content Creation - Beginner",issuer:"Learning",date:"2026",code:"LEARN-03",color:"#4da3ff",skills:["Learning","Practice"]}
   ]
 };
 const $=s=>document.querySelector(s), D=DATA;
@@ -110,9 +111,9 @@ $("#navlinks").innerHTML=links.map(l=>`<li><a href="#${l}" data-l="${l}">${l}</a
 $("#app").innerHTML=`
 <section id="top"><div class="water">${D.firstName}</div><div class="heroin">
   <div class="chip" style="margin-bottom:24px">01 / ${D.role.toUpperCase()}</div>
-  <h1><span>CREATING CONTENT</span><span class="g">THAT GROWS BRANDS<span class="dot">.</span></span></h1>
+  <h1><span>BEGINNER WITH</span><span class="g">BIG INTEREST TO LEARN<span class="dot">.</span></span></h1>
   <div class="metrics">${D.metrics.map(m=>`<div><b class="count" data-v="${m[1]}" data-d="${m[2]}">0</b><span class="mono" style="font-size:12px;opacity:.6">${m[0]}</span></div>`).join("")}
-  <div class="mono" style="font-size:12px"><span class="beacon"></span>Open to Internship Opportunities</div></div>
+  <div class="mono" style="font-size:12px"><span class="beacon"></span>Open to Internship - Ready to Learn</div></div>
   <a class="btn red mag" href="#projects">EXPLORE WORK →</a>
   <a class="btn glass mag" href="#contact" style="margin-left:12px">CONTACT ME</a>
 </div></section>
@@ -120,15 +121,15 @@ $("#app").innerHTML=`
  <div class="glass term"><div style="line-height:1.7;max-width:60ch">${D.bio.map(p=>`<p style="margin-bottom:14px">${p}</p>`).join("")}${chips(D.strengths)}</div>
  <div><div class="mono" style="font-size:12px;opacity:.5;margin-bottom:12px">$ skills --matrix</div>
  <div id="skcats"></div><div id="sklist" style="margin-top:12px"></div></div></div></section>
-<section id="experience"><h2 class="title">Experience <span class="neon">& education</span></h2>
- <div style="margin-bottom:56px"><button class="pill on" data-f="all">All</button><button class="pill" data-f="work">Work Experience</button><button class="pill" data-f="education">Education</button></div>
+<section id="experience"><h2 class="title">My <span class="neon">Journey</span></h2>
+ <div style="margin-bottom:56px"><button class="pill on" data-f="all">All</button><button class="pill" data-f="work">Internship Goal</button><button class="pill" data-f="education">Education</button></div>
  <div class="tl"><div class="spine"></div><div id="items"></div></div></section>
-<section id="projects"><h2 class="title">Selected <span class="neon">projects</span></h2>
+<section id="projects"><h2 class="title">What I Am <span class="neon">Learning</span></h2>
  <div class="grid">${D.projects.map(p=>`<div class="glass card"><h3>${p.name}</h3><p style="opacity:.75;margin:8px 0 16px;font-size:14px">${p.blurb}</p>${chips(p.stack)}
  <div style="margin-top:12px;font-size:14px"><a href="${p.gh}" target="_blank" style="color:#fff;margin-right:16px">GitHub</a></div></div>`).join("")}</div></section>
 <section id="skills"><h2 class="title">My <span class="neon">skills</span></h2>
  <div class="grid">${Object.entries(D.skills).map(([k,v])=>`<div class="glass" style="padding:20px"><h3 style="font:600 18px Syne;color:#e0002a;margin-bottom:12px">${k}</h3>${chips(v)}</div>`).join("")}</div></section>
-<section id="certifications" style="overflow:hidden"><h2 class="title">Certifi<span class="neon">cations</span></h2>
+<section id="certifications" style="overflow:hidden"><h2 class="title">Learning <span class="neon">Journey</span></h2>
  <div style="display:flex;justify-content:space-between;margin-bottom:24px"><span style="opacity:.6;font-size:14px">Drag to rotate. Click a card to bring it forward.</span><button class="chip" id="auto" style="background:none;cursor:pointer">[AUTO-SPIN ON]</button></div>
  <div id="ring-wrap"><div id="cyl"></div></div><div class="dots" id="dots"></div></section>
 <section id="contact"><h2 class="title">Let’s <span class="neon">talk</span></h2>
