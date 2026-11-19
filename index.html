@@ -1,1 +1,190 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harshini SV - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Syne:wght@500;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#030303;--accent-red:#c40024;--bright-red:#e0002a;--text:#f5f5f5}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{color:var(--text);font-family:'Space Grotesk',sans-serif}
+h1,h2{font-family:Oswald,sans-serif;text-transform:uppercase}
+.mono{font-family:'JetBrains Mono',monospace}
+.stage{position:fixed;inset:0;z-index:-10;background:var(--bg)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.55) 70%,rgba(0,0,0,.92) 100%)}
+#bar{position:fixed;top:0;left:0;height:2px;width:100%;z-index:80;transform-origin:left;transform:scaleX(0);background:var(--bright-red)}
+.glass{background:rgba(9,9,9,.6);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08)}
+.chip{font-family:'JetBrains Mono',monospace;font-size:12px;padding:4px 10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#fff;display:inline-block;margin:0 6px 6px 0}
+.neon{background:linear-gradient(135deg,#fff,#ff3b5c 50%,#c40024);-webkit-background-clip:text;background-clip:text;color:transparent}
+section{max-width:72rem;margin:0 auto;padding:7rem 1.25rem;position:relative}
+.title{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;margin-bottom:2.5rem}
+.btn{display:inline-block;padding:12px 28px;font-family:Oswald;letter-spacing:.08em;color:#fff;text-decoration:none;border:0;cursor:pointer;font-size:16px}
+.btn.red{background:var(--accent-red)}
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(92vw,56rem);border-radius:999px;padding:10px 22px;display:flex;justify-content:space-between;align-items:center}
+nav .logo{font:700 20px Oswald;color:#fff;text-decoration:none}
+nav ul{display:flex;gap:4px;list-style:none;padding:0}
+nav ul a{color:#ddd;text-decoration:none;font-size:14px;padding:6px 12px;border-radius:999px;text-transform:capitalize}
+@media(max-width:700px){nav ul{display:none}}
+#top{min-height:100vh;display:flex;align-items:center;overflow:hidden;max-width:none}
+.water{position:absolute;left:0;top:50%;transform:translateY(-50%);font:700 clamp(8rem,28vw,26rem)/1 Oswald;text-transform:uppercase;color:transparent;-webkit-text-stroke:2px rgba(196,0,36,.35);pointer-events:none;white-space:nowrap}
+.heroin{position:relative;max-width:72rem;margin:0 auto;padding:7rem 1.25rem 0;width:100%}
+h1{font-size:clamp(3rem,9vw,7.5rem);line-height:.95;max-width:13ch}
+h1 span{display:block}
+h1 .g{background:linear-gradient(135deg,#fff 0%,#ff3b5c 50%,#c40024 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .dot{display:inline;color:#e0002a;-webkit-text-fill-color:#e0002a}
+.metrics{display:flex;flex-wrap:wrap;gap:32px;margin:40px 0}
+.metrics b{font:500 36px Oswald;display:block}
+.beacon{display:inline-block;width:10px;height:10px;border-radius:50%;background:#4ade80;animation:p 1.6s infinite;margin-right:8px}
+@keyframes p{70%{box-shadow:0 0 0 9px transparent}}
+.term{padding:28px;display:grid;gap:32px;grid-template-columns:1fr 1fr}
+@media(max-width:800px){.term{grid-template-columns:1fr}}
+.spine{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,var(--bright-red),transparent)}
+.tl{position:relative;padding-top:10px}
+.item{position:relative;width:50%;padding:0 48px;margin-bottom:40px}
+.item:nth-child(odd){text-align:right}.item:nth-child(even){margin-left:50%}
+.item .node{position:absolute;top:24px;width:14px;height:14px;border-radius:50%;animation:p 1.6s infinite}
+.item:nth-child(odd) .node{right:-7px}.item:nth-child(even) .node{left:-7px}
+.node.work{background:#e0002a}.node.education{background:#4ade80}
+@media(max-width:700px){.spine{left:16px}.item,.item:nth-child(even){width:100%;margin-left:0;padding:0 0 0 44px;text-align:left}.item .node{left:9px!important;right:auto!important}}
+.pill{background:none;border:1px solid rgba(255,255,255,.15);color:#fff;padding:8px 20px;border-radius:999px;cursor:pointer;margin-right:8px}
+.pill.on{background:var(--accent-red)}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{padding:24px}
+.card h3{font:600 22px Syne}
+#ring-wrap{height:360px;perspective:1600px;position:relative;touch-action:pan-y;user-select:none}
+#cyl{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.cert{position:absolute;left:0;top:0;width:250px;height:300px;backface-visibility:hidden;background:linear-gradient(160deg,#0d0d0f,#050505);overflow:hidden}
+.cert .beam{height:3px}
+.cert .in{padding:20px;display:flex;flex-direction:column;height:297px}
+.dots{display:flex;justify-content:center;gap:12px;margin-top:24px}
+.dots button{height:8px;width:8px;border-radius:999px;border:0;background:rgba(255,255,255,.25);cursor:pointer}
+.dots button.on{width:28px;background:var(--bright-red)}
+#modal{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;padding:20px}
+#modal.show{display:flex}
+#modal .box{max-width:520px;width:100%;padding:28px}
+input,textarea{width:100%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15);color:#fff;padding:12px 16px;font:14px 'JetBrains Mono',monospace;margin-bottom:14px;outline:none}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div class="stage"><div class="vig"></div></div>
+<nav class="glass"><a class="logo" href="#top" id="logo"></a><ul id="navlinks"></ul></nav>
+<main id="app"></main>
+<div id="modal"><div class="box glass" id="mbox"></div></div>
+<script>
+const DATA = {
+  firstName: "Harshini", fullName: "Harshini SV", role: "Digital Marketing Intern",
+  email: "harshinishekhar246@gmail.com", location: "", resume: "#contact",
+  bio: ["Hi, I'm Harshini SV, a student with a passion for Digital Marketing and Content Creation.",
+        "I love creating Instagram Reels, posters and campaigns that help brands grow online. I am looking for a Digital Marketing Intern role where I can learn practically and contribute with creative ideas."],
+  strengths: ["Creative Thinking","Quick Learner","Consistent","Content Creation"],
+  socials: [["GitHub","https://github.com/harshinishekhar246-ui"],["LinkedIn","https://linkedin.com/in/harshini-shekhar"],["Instagram","https://instagram.com/ajiet._.diaries"]],
+  metrics: [["Projects",4,0],["Reels / Designs",25,0],["Tools Known",5,0]],
+  timeline: [
+    {type:"work",title:"Digital Marketing Intern (Aspiring)",org:"Seeking Internship Opportunity",period:"2026 – Present",pts:["Creating content ideas, Reels and posters for brands.","Learning Meta Ads and Content Strategy."]},
+    {type:"education",title:"B.E, Electronics & Communication (ECE)",org:"AJIET",period:"2024 – 2028",pts:["Learning Digital Marketing side by side"]}
+  ],
+  projects: [
+    {name:"Digital Marketing Content",blurb:"Created Reels, posters and captions for Instagram pages. Focus on reach and engagement.",stack:["Canva","CapCut","Instagram"],gh:"https://github.com/harshinishekhar246-ui/Harshini",live:""},
+    {name:"Portfolio Website",blurb:"This portfolio itself - built with HTML, CSS and hosted on GitHub Pages.",stack:["HTML","CSS","GitHub Pages"],gh:"https://github.com/harshinishekhar246-ui/Harshini",live:""},
+    {name:"Brand Poster Design",blurb:"Designed posters for small brands using Canva - festival offers, product launches.",stack:["Canva","Instagram"],gh:"https://github.com/harshinishekhar246-ui/Harshini",live:""}
+  ],
+  skills: {
+    "Digital Marketing":["Instagram Marketing","Content Creation","Canva","CapCut","Meta Ads - Learning"],
+    "Technical":["HTML","CSS Basics","MS Office"],
+    "Soft Skills":["Communication","Creativity","Time Management","Team Work"]
+  },
+  certs: [
+    {name:"Digital Marketing Basics",issuer:"Online Course",date:"2026-03",code:"DM-0001",color:"#ff3b5c",skills:["Social Media","Content"]},
+    {name:"Canva Design",issuer:"Canva",date:"2026-01",code:"DM-0002",color:"#00d4aa",skills:["Poster","Reels"]},
+    {name:"Content Creation",issuer:"Online Course",date:"2025-11",code:"DM-0003",color:"#4da3ff",skills:["Reels","Editing"]}
+  ]
+};
+const $=s=>document.querySelector(s), D=DATA;
+const chips=a=>a.map(x=>`<span class="chip">${x}</span>`).join("");
+$("#logo").innerHTML=D.firstName+'<span style="color:#e0002a">.</span>';
+const links=["about","experience","projects","skills","certifications","contact"];
+$("#navlinks").innerHTML=links.map(l=>`<li><a href="#${l}" data-l="${l}">${l}</a></li>`).join("");
+$("#app").innerHTML=`
+<section id="top"><div class="water">${D.firstName}</div><div class="heroin">
+  <div class="chip" style="margin-bottom:24px">01 / ${D.role.toUpperCase()}</div>
+  <h1><span>CREATING CONTENT</span><span class="g">THAT GROWS BRANDS<span class="dot">.</span></span></h1>
+  <div class="metrics">${D.metrics.map(m=>`<div><b class="count" data-v="${m[1]}" data-d="${m[2]}">0</b><span class="mono" style="font-size:12px;opacity:.6">${m[0]}</span></div>`).join("")}
+  <div class="mono" style="font-size:12px"><span class="beacon"></span>Open to Internship Opportunities</div></div>
+  <a class="btn red mag" href="#projects">EXPLORE WORK →</a>
+  <a class="btn glass mag" href="#contact" style="margin-left:12px">CONTACT ME</a>
+</div></section>
+<section id="about"><h2 class="title">About <span class="neon">me</span></h2>
+ <div class="glass term"><div style="line-height:1.7;max-width:60ch">${D.bio.map(p=>`<p style="margin-bottom:14px">${p}</p>`).join("")}${chips(D.strengths)}</div>
+ <div><div class="mono" style="font-size:12px;opacity:.5;margin-bottom:12px">$ skills --matrix</div>
+ <div id="skcats"></div><div id="sklist" style="margin-top:12px"></div></div></div></section>
+<section id="experience"><h2 class="title">Experience <span class="neon">& education</span></h2>
+ <div style="margin-bottom:56px"><button class="pill on" data-f="all">All</button><button class="pill" data-f="work">Work Experience</button><button class="pill" data-f="education">Education</button></div>
+ <div class="tl"><div class="spine"></div><div id="items"></div></div></section>
+<section id="projects"><h2 class="title">Selected <span class="neon">projects</span></h2>
+ <div class="grid">${D.projects.map(p=>`<div class="glass card"><h3>${p.name}</h3><p style="opacity:.75;margin:8px 0 16px;font-size:14px">${p.blurb}</p>${chips(p.stack)}
+ <div style="margin-top:12px;font-size:14px"><a href="${p.gh}" target="_blank" style="color:#fff;margin-right:16px">GitHub</a></div></div>`).join("")}</div></section>
+<section id="skills"><h2 class="title">My <span class="neon">skills</span></h2>
+ <div class="grid">${Object.entries(D.skills).map(([k,v])=>`<div class="glass" style="padding:20px"><h3 style="font:600 18px Syne;color:#e0002a;margin-bottom:12px">${k}</h3>${chips(v)}</div>`).join("")}</div></section>
+<section id="certifications" style="overflow:hidden"><h2 class="title">Certifi<span class="neon">cations</span></h2>
+ <div style="display:flex;justify-content:space-between;margin-bottom:24px"><span style="opacity:.6;font-size:14px">Drag to rotate. Click a card to bring it forward.</span><button class="chip" id="auto" style="background:none;cursor:pointer">[AUTO-SPIN ON]</button></div>
+ <div id="ring-wrap"><div id="cyl"></div></div><div class="dots" id="dots"></div></section>
+<section id="contact"><h2 class="title">Let’s <span class="neon">talk</span></h2>
+ <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+ <form class="glass" style="padding:24px" id="form"><input id="fn" required placeholder="Your name"><input id="fe" required type="email" placeholder="Your email"><textarea id="fm" required rows="5" placeholder="Message"></textarea><button class="btn red">SEND MESSAGE</button></form>
+ <div><button id="copy" class="glass" style="width:100%;text-align:left;padding:20px;color:#fff;border-width:1px;margin-bottom:24px"><div class="mono" style="font-size:12px;opacity:.5" id="clab">Click to copy email</div><div style="font:500 20px Syne;margin-top:4px">${D.email}</div></button>
+ ${D.socials.map(s=>`<a class="glass btn mag" style="margin:0 12px 12px 0" target="_blank" href="${s[1]}">${s[0]}</a>`).join("")}</div></div></section>`;
+const cats=Object.keys(D.skills);
+function setCat(c){ $("#skcats").innerHTML=cats.map(k=>`<button class="chip" style="cursor:pointer;${k===c?'background:rgba(196,0,36,.5);border-color:#e0002a':''}" data-c="${k}">${k}</button>`).join(""); $("#sklist").innerHTML=chips(D.skills[c]); }
+setCat(cats[0]); $("#skcats").onclick=e=>{const c=e.target.dataset.c; if(c) setCat(c)};
+function drawTL(f){ $("#items").innerHTML=D.timeline.filter(t=>f==="all"||t.type===f).map(t=>`<div class="item"><span class="node ${t.type}"></span><div class="glass" style="padding:20px"><div class="mono" style="font-size:12px;opacity:.5">${t.period}</div><h3 style="font:600 20px Syne;margin:4px 0">${t.title}</h3><div style="color:#e0002a;font-size:14px;margin-bottom:8px">${t.org}</div><ul style="list-style:none;padding:0;font-size:14px;opacity:.75">${t.pts.map(p=>`<li>${p}</li>`).join("")}</ul></div></div>`).join(""); }
+drawTL("all");
+document.querySelectorAll(".pill").forEach(b=>b.onclick=()=>{document.querySelectorAll(".pill").forEach(x=>x.classList.remove("on"));b.classList.add("on");drawTL(b.dataset.f)});
+$("#copy").onclick=async()=>{try{await navigator.clipboard.writeText(D.email);$("#clab").textContent="Copied to clipboard";setTimeout(()=>$("#clab").textContent="Click to copy email",1800)}catch{}};
+$("#form").onsubmit=e=>{e.preventDefault();location.href=`mailto:${D.email}?subject=Portfolio enquiry&body=${encodeURIComponent($("#fm").value+"\n\n— "+$("#fn").value+" ("+$("#fe").value+")")}`};
+document.querySelectorAll(".count").forEach(el=>{const v=+el.dataset.v,d=+el.dataset.d,s=performance.now();
+ const f=t=>{const p=Math.min((t-s)/1600,1);el.textContent=(v*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+addEventListener("scroll",()=>{ const m=document.documentElement.scrollHeight-innerHeight; const sp=m>0?scrollY/m:0; bar.style.transform=`scaleX(${sp})`; },{passive:true});
+const certs=D.certs, N=certs.length, STEP=360/N, cyl=$("#cyl");
+const R=()=>innerWidth<640?275:innerWidth<1024?380:480;
+let ang=0, tgt=null, vel=0, drag=false, moved=0, lastX=0, samples=[], auto=true, active=0, r=R();
+const mod=(a,n)=>((a%n)+n)%n;
+cyl.innerHTML=certs.map((c,i)=>`<div class="cert glass" data-i="${i}"><div class="beam" style="background:${c.color};box-shadow:0 0 14px 2px ${c.color}"></div><div class="in"><span class="chip" style="color:${c.color};border-color:${c.color}66;align-self:flex-start">${c.code}</span><h3 style="font:600 20px Syne;margin-top:20px;line-height:1.2">${c.name}</h3><div style="opacity:.6;font-size:14px;margin-top:8px">${c.issuer}</div><div class="mono" style="margin-top:auto;font-size:12px;opacity:.4">${c.date}</div></div></div>`).join("");
+const cards=[...cyl.children];
+$("#dots").innerHTML=certs.map((c,i)=>`<button data-i="${i}" aria-label="${c.name}"></button>`).join("");
+const dots=[...$("#dots").children];
+addEventListener("resize",()=>r=R());
+function paint(){
+  cyl.style.transform=`translateZ(${-r}px) rotateY(${ang}deg)`;
+  cards.forEach((el,i)=>{ el.style.transform=`translate(-50%,-50%) rotateY(${i*STEP}deg) translateZ(${r}px)`;
+    const cphi=Math.cos((i*STEP+ang)*Math.PI/180);
+    el.style.opacity=cphi<0?0:.35+.65*cphi; el.style.pointerEvents=cphi<.2?"none":"auto"; });
+  const a=mod(Math.round(-ang/STEP),N); if(a!==active){active=a} dots.forEach((d,i)=>d.classList.toggle("on",i===active));
+}
+(function tick(){
+  if(!drag){
+    if(tgt!==null){const d=tgt-ang;ang+=d*.12;if(Math.abs(d)<.05){ang=tgt;tgt=null}}
+    else if(Math.abs(vel)>.01){ang+=vel;vel*=.945}
+    else if(auto&&!$("#modal").classList.contains("show")){ang+=.06}
+  }
+  paint(); requestAnimationFrame(tick);
+})();
+const wrap=$("#ring-wrap");
+wrap.addEventListener("pointerdown",e=>{drag=true;moved=0;tgt=null;vel=0;lastX=e.clientX;samples=[{x:e.clientX,t:performance.now()}];wrap.setPointerCapture(e.pointerId)});
+wrap.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-lastX;lastX=e.clientX;moved+=Math.abs(dx);ang+=dx*.35;
+  const n=performance.now();samples.push({x:e.clientX,t:n});samples=samples.filter(s=>n-s.t<100)});
+const up=e=>{if(!drag)return;drag=false;if(samples.length>1){const a=samples[0],b=samples[samples.length-1];vel=((b.x-a.x)/((b.t-a.t)||1))*16*.35}};
+wrap.addEventListener("pointerup",up); wrap.addEventListener("pointercancel",up);
+const goTo=i=>{const d=mod(-i*STEP-ang+180,360)-180;tgt=ang+d;vel=0};
+dots.forEach((d,i)=>d.onclick=()=>goTo(i));
+cards.forEach((el,i)=>el.onclick=()=>{ if(moved>5)return; if(i===active) openModal(i); else goTo(i); });
+$("#auto").onclick=e=>{auto=!auto;e.target.textContent=auto?"[AUTO-SPIN ON]":"[AUTO-SPIN PAUSED]"};
+function openModal(i){const c=certs[i];
+  $("#mbox").innerHTML=`<div class="mono" style="font-size:12px;color:#4ade80;margin-bottom:12px">● VERIFIED</div><h3 style="font:600 24px Syne">${c.name}</h3><div style="opacity:.6;margin-top:4px">${c.issuer} · ${c.date}</div>${chips(c.skills)}<br><button class="btn red" style="margin-top:20px" onclick="document.getElementById('modal').classList.remove('show')">CLOSE</button>`;
+  $("#modal").classList.add("show");}
+$("#modal").onclick=e=>{if(e.target.id==="modal")e.target.classList.remove("show")};
+</script>
+</body>
+</html>
